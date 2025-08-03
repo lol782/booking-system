@@ -22,7 +22,7 @@ Museum Explorer is your gateway to discovering and experiencing the world's most
 ![Authentication](screenshots/register.png)
 *Seamless login and registration with modern form design*
 
-### User Dashboard
+### Admin Dashboard
 ![Admin](screenshots/admin.png)
 *Side canvas showing personalized options and booking management*
 
