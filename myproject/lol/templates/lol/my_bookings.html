@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">My Bookings</h1>
+
+{% if bookings %}
+  <ul class="space-y-4">
+    {% for booking in bookings %}
+      <li class="border p-4 rounded shadow">
+        <h3 class="text-lg font-semibold">{{ booking.museum.name }}</h3>
+        <p>Date: {{ booking.visit_date }}</p>
+        <p>booking date: {{ booking.booking_date }}</p>
+        <p>Visitor: {{ booking.visitor.user.username }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No bookings found.</p>
+{% endif %}
+{% endblock %}

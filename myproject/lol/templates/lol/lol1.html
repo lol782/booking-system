@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h1 >Select lower cast people</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow transition duration-200">Submit</button>
+  </form>
+ {% if selected_lol %}
+  <h2>Selected Chai Variety Type</h2>
+  <p>{{ selected_lol.type }}</p>
+{% endif %}
+{% endblock %}

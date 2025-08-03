@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>About Page</h1>
+<p>This is the about page of the project.</p>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a href="{% url 'browse_museums' %}" style="display: inline-block; background: #2563eb; color: #fff; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">Browse Museums</a>
+</div>
+
+{% endblock %}

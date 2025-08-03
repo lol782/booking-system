@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>LOL</h1>
+<p>This is the LOL page of the project.</p>
+<div class="grid grid-cols-3 gap-4">
+{% for lol in lols %}
+    <div class="lol-item">
+        <h1>{{ lol.name }}</h1>
+        <p>{{ lol.age }}</p>
+        <img  src="{{ lol.img.url }}" alt="">
+        <p>{{ lol.type }}</p>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

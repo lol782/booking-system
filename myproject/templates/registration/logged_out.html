@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div style="text-align: center; padding: 40px;">
+    <h1 style="font-size: 2.5rem; font-weight: bold; color: #28a745; margin-bottom: 20px;">you have been logged out</h1>
+    <a href="{% url 'login' %}" style="display: inline-block; background: #007bff; color: #fff; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-decoration: none;">Back to login page</a>
+  </div>
+{% endblock %}

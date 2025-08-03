@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<!-- Debug token information -->
+<div style="display: none;" id="token-debug">
+    Access Token: {{ access_token|default:'not set' }}
+    Refresh Token: {{ refresh_token|default:'not set' }}
+</div>
+{% endif %}
+
+
+<h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 16px; text-align: center;">BROWSE</h1>
+<div style="display: flex; flex-wrap: wrap; gap: 24px;">
+  {% for museum in museums %}
+    <div style="background: #000; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 16px; width: 300px; margin-bottom: 24px; display: flex; flex-direction: column; align-items: center;">
+      {% if museum.img %}
+        <img src="{{ museum.img.url }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 16px;" alt="{{ museum.name }}">
+      {% else %}
+        <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background: #eee; color: #888; border-radius: 4px; margin-bottom: 16px;">No Image</div>
+      {% endif %}
+      <div style="width: 100%;">
+        <h5 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 8px;">{{ museum.name }}</h5>
+        <p style="margin-bottom: 16px;">{{ museum.description }}</p>
+        {% if museum.id %}
+          <a href="{% url 'museum_detail' museum.id %}" style="display: inline-block; background: #2563eb; color: #fff; font-weight: bold; padding: 8px 16px; border-radius: 4px; text-decoration: none;">View Details</a>
+        {% else %}
+          <span style="color: #888;">No Details Available</span>
+        {% endif %}
+        <a href="{% url 'book_museum' museum.id %}" style="display: inline-block; background: #64748b; color: #fff; font-weight: bold; padding: 8px 16px; border-radius: 4px; text-decoration: none; margin-left: 8px;">Book Museum</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
